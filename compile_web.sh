@@ -37,7 +37,7 @@ emcmake cmake \
         -DCLASP_BUILD_WITH_THREADS=Off \
         -DCMAKE_VERBOSE_MAKEFILE=On \
         -DCMAKE_BUILD_TYPE=release \
-        -DCMAKE_CXX_FLAGS="-std=c++11 -Wall -s DISABLE_EXCEPTION_CATCHING=0" \
+        -DCMAKE_CXX_FLAGS="-std=c++11 -Wall -s DISABLE_EXCEPTION_CATCHING=0 -s WASM=1" \
         -DCMAKE_CXX_FLAGS_RELEASE="-Os -DNDEBUG" \
         -DCMAKE_EXE_LINKER_FLAGS="" \
         -DCMAKE_EXE_LINKER_FLAGS_RELEASE="" \
@@ -49,5 +49,4 @@ make -C build/web web
 # copy the result into the test site
 cd ..  # return to root
 cp ./clingo/build/web/bin/clingo.js ./test_site/js/
-cp ./clingo/build/web/bin/clingo.js.mem ./test_site/
-# cp ./clingo/build/web/bin/clingo.wasm ./test_site   # when WASM is given
+cp ./clingo/build/web/bin/clingo.wasm ./test_site
